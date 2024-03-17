@@ -48,7 +48,7 @@ const SignUp = () => {
             Blog
           </Link>
           <p className="text-base mt-5">
-            By signing up you will get all the notifications of the trending
+            By signing up allows you will get all the notifications of the trending
             news,technologies and more.stay tuned...
           </p>
         </div>
@@ -115,4 +115,3 @@ const SignUp = () => {
 };
 
 export default SignUp;
-// 2:21:18
