@@ -5,5 +5,4 @@ const DashPosts = () => {
     <div>DashPosts</div>
   )
 }
-
 export default DashPosts
