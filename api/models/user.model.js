@@ -18,6 +18,10 @@ const userSchema = new mongoose.Schema({
         type: String,
         default: 'https://static-00.iconduck.com/assets.00/profile-circle-icon-1023x1024-ucnnjrj1.png'
     },
+    isAdmin: {
+        type: Boolean,
+        default: false,
+    },
 }, { timestamps: true }
 );
 

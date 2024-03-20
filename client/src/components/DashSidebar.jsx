@@ -58,5 +58,4 @@ const DashSidebar = () => {
     </Sidebar>
   );
 };
-
 export default DashSidebar;
