@@ -72,9 +72,9 @@ export const getUsers = async (req, res, next) => {
         const sortDirection = req.query.sort === 'asc' ? 1 : -1;
 
         const users = await User.find()
-        .sort({ createdAt: sortDirection })
-        .skip(startIndex)
-        .limit(limit);
+            .sort({ createdAt: sortDirection })
+            .skip(startIndex)
+            .limit(limit);
 
         const usersWithoutPassword = users.map((user) => {
             const { password, ...rest } = user._doc;
@@ -83,8 +83,8 @@ export const getUsers = async (req, res, next) => {
         const totalUsers = await User.countDocuments();
         const now = new Date();
         const oneMonthAgo = new Date(
-            now.getFullYear(), 
-            now.getMonth() - 1, 
+            now.getFullYear(),
+            now.getMonth() - 1,
             now.getDate()
         );
         const lastMonthUsers = await User.countDocuments({ createdAt: { $gte: oneMonthAgo }, });
@@ -94,6 +94,18 @@ export const getUsers = async (req, res, next) => {
             totalUsers,
             lastMonthUsers
         });
+    } catch (error) {
+        next(error);
+    }
+};
+export const getUser = async (req, res, next) => {
+    try {
+        const user = await User.findById(req.params.userId);
+        if (!user) {
+            return next(errorHandler(404, 'User not found'));
+        }
+        const { password, ...rest } = user._doc;
+        res.status(200).json(rest);
     } catch (error) {
         next(error);
     }
