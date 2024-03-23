@@ -3,12 +3,13 @@ import { useEffect, useState } from "react";
 import { FaThumbsUp } from "react-icons/fa";
 import { useSelector } from "react-redux";
 import { Button, Textarea } from "flowbite-react";
+import { set } from "mongoose";
 
-export default function Comment({ comment, onLike, onEdit }) {
-  const { currentUser } = useSelector((state) => state.user);
+export default function Comment({ comment, onLike, onEdit, onDelete }) {
   const [user, setUser] = useState({});
   const [isEditing, setIsEditing] = useState(false);
   const [editedContent, setEditedContent] = useState(comment.content);
+  const { currentUser } = useSelector((state) => state.user);
   useEffect(() => {
     const getUser = async () => {
       try {
@@ -28,6 +29,7 @@ export default function Comment({ comment, onLike, onEdit }) {
     setIsEditing(true);
     setEditedContent(comment.content);
   };
+
   const handleSave = async () => {
     try {
       const res = await fetch(`/api/comment/editComment/${comment._id}`, {
@@ -42,7 +44,6 @@ export default function Comment({ comment, onLike, onEdit }) {
       if (res.ok) {
         setIsEditing(false);
         onEdit(comment, editedContent);
-
       }
     } catch (error) {
       console.log(error.message);
@@ -73,10 +74,9 @@ export default function Comment({ comment, onLike, onEdit }) {
               value={editedContent}
               onChange={(e) => setEditedContent(e.target.value)}
             />
-            <div className="flex justify-end gap-2 text-sm">
+            <div className="flex justify-end gap-2 text-xs">
               <Button
                 type="button"
-                className=""
                 size="sm"
                 gradientDuoTone="purpleToBlue"
                 onClick={handleSave}
@@ -85,20 +85,19 @@ export default function Comment({ comment, onLike, onEdit }) {
               </Button>
               <Button
                 type="button"
-                className=""
                 size="sm"
                 gradientDuoTone="purpleToBlue"
                 outline
                 onClick={() => setIsEditing(false)}
               >
-                Cancle
+                Cancel
               </Button>
             </div>
           </>
         ) : (
           <>
             <p className="text-gray-500 pb-2">{comment.content}</p>
-            <div className="flex items-center pt-2 text-sm border-t dark:border-gray-700 max-w-fit gap-2">
+            <div className="flex items-center pt-2 text-xs border-t dark:border-gray-700 max-w-fit gap-2">
               <button
                 type="button"
                 onClick={() => onLike(comment._id)}
@@ -118,13 +117,22 @@ export default function Comment({ comment, onLike, onEdit }) {
               </p>
               {currentUser &&
                 (currentUser._id === comment.userId || currentUser.isAdmin) && (
-                  <button
-                    type="button"
-                    onClick={handleEdit}
-                    className="text-gray-400 hover:text-blue-500"
-                  >
-                    Edit
-                  </button>
+                  <>
+                    <button
+                      type="button"
+                      onClick={handleEdit}
+                      className="text-gray-400 hover:text-blue-500"
+                    >
+                      Edit
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => onDelete(comment._id)}
+                      className="text-gray-400 hover:text-red-500"
+                    >
+                      Delete
+                    </button>
+                  </>
                 )}
             </div>
           </>
