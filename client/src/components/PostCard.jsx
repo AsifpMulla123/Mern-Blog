@@ -6,7 +6,7 @@ export default function PostCard({ post }) {
       <Link to={`/post/${post.slug}`}>
         <img
           src={post.image}
-          alt="post cover" //10:05:30
+          alt="post cover"
           className="h-[260px] w-full object-cover group-hover:h-[200px] transition-all duration-300 z-20"
         />
       </Link>
