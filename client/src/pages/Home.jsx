@@ -27,6 +27,7 @@ const Home = () => {
         </p>
         <Link
           to="/search"
+          aria-label="search"
           className="text-xs sm:text-sm text-teal-500 font-bold hover:underline"
         >
           View all posts
@@ -46,6 +47,7 @@ const Home = () => {
             </div>
             <Link
               to="/search"
+              aria-label="search"
               className="text-lg text-teal-500 hover:underline text-center"
             >
               View all posts

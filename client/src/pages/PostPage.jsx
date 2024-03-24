@@ -64,8 +64,9 @@ const PostPage = () => {
       <Link
         to={`/search?category=${post && post.category}`}
         className="self-center mt-5"
+        aria-label="category"
       >
-        <Button color="gray" pill size="xs">
+        <Button color="gray" pill size="xs" aria-label="Category">
           {post && post.category}
         </Button>
       </Link>

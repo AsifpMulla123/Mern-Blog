@@ -45,7 +45,7 @@ const DashSidebar = () => {
       <Sidebar.Items>
         <Sidebar.ItemGroup className="flex flex-col gap-1">
           {currentUser && currentUser.isAdmin && (
-            <Link to="/dashboard?tab=dash">
+            <Link to="/dashboard?tab=dash"  aria-label="dashboard">
               <Sidebar.Item
                 active={tab === "dash" || !tab}
                 icon={HiChartPie}
@@ -55,7 +55,7 @@ const DashSidebar = () => {
               </Sidebar.Item>
             </Link>
           )}
-          <Link to="/dashboard?tab=profile">
+          <Link to="/dashboard?tab=profile"  aria-label="profile">
             <Sidebar.Item
               active={tab === "profile"}
               icon={HiUser}
@@ -67,7 +67,7 @@ const DashSidebar = () => {
             </Sidebar.Item>
           </Link>
           {currentUser.isAdmin && (
-            <Link to="/dashboard?tab=posts">
+            <Link to="/dashboard?tab=posts"  aria-label="posts">
               <Sidebar.Item
                 active={tab === "posts"}
                 icon={HiDocumentText}
@@ -79,7 +79,7 @@ const DashSidebar = () => {
           )}
           {currentUser.isAdmin && (
             <>
-              <Link to="/dashboard?tab=users">
+              <Link to="/dashboard?tab=users"  aria-label="users">
                 <Sidebar.Item
                   active={tab === "users"}
                   icon={HiOutlineUserGroup}
@@ -88,7 +88,7 @@ const DashSidebar = () => {
                   Users
                 </Sidebar.Item>
               </Link>
-              <Link to="/dashboard?tab=comments">
+              <Link to="/dashboard?tab=comments"  aria-label="comments">
                 <Sidebar.Item
                   active={tab === "comments"}
                   icon={HiAnnotation}

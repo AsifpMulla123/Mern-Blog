@@ -116,6 +116,7 @@ export default function DashUsers() {
             <button
               onClick={handleShowMore}
               className="w-full text-teal-500 self-center text-sm py-7"
+              aria-label="Show"
             >
               Show more
             </button>
@@ -138,10 +139,10 @@ export default function DashUsers() {
               Are you sure you want to delete this user?
             </h3>
             <div className="flex justify-center gap-4">
-              <Button color="failure" onClick={handleDeleteUser}>
+              <Button color="failure" onClick={handleDeleteUser} aria-label="Sure">
                 Yes, I'm sure
               </Button>
-              <Button color="gray" onClick={() => setShowModal(false)}>
+              <Button color="gray" onClick={() => setShowModal(false)} aria-label="Cancle">
                 No, cancel
               </Button>
             </div>

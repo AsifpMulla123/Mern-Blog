@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 import { FaThumbsUp } from "react-icons/fa";
 import { useSelector } from "react-redux";
 import { Button, Textarea } from "flowbite-react";
-import { set } from "mongoose";
 
 export default function Comment({ comment, onLike, onEdit, onDelete }) {
   const [user, setUser] = useState({});
@@ -80,6 +79,7 @@ export default function Comment({ comment, onLike, onEdit, onDelete }) {
                 size="sm"
                 gradientDuoTone="purpleToBlue"
                 onClick={handleSave}
+                aria-label="Save"
               >
                 Save
               </Button>
@@ -89,6 +89,7 @@ export default function Comment({ comment, onLike, onEdit, onDelete }) {
                 gradientDuoTone="purpleToBlue"
                 outline
                 onClick={() => setIsEditing(false)}
+                aria-label="Cancle"
               >
                 Cancel
               </Button>
@@ -100,6 +101,7 @@ export default function Comment({ comment, onLike, onEdit, onDelete }) {
             <div className="flex items-center pt-2 text-xs border-t dark:border-gray-700 max-w-fit gap-2">
               <button
                 type="button"
+                aria-label="like"
                 onClick={() => onLike(comment._id)}
                 className={`text-gray-400 hover:text-blue-500 ${
                   currentUser &&
@@ -120,6 +122,7 @@ export default function Comment({ comment, onLike, onEdit, onDelete }) {
                   <>
                     <button
                       type="button"
+                      aria-label="Edit"
                       onClick={handleEdit}
                       className="text-gray-400 hover:text-blue-500"
                     >
@@ -127,6 +130,7 @@ export default function Comment({ comment, onLike, onEdit, onDelete }) {
                     </button>
                     <button
                       type="button"
+                      aria-label="Delete"
                       onClick={() => onDelete(comment._id)}
                       className="text-gray-400 hover:text-red-500"
                     >

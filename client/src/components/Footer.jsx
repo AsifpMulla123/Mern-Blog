@@ -17,6 +17,7 @@ const FooterComponent = () => {
             <Link
               to="/"
               className="self-center whitespace-nowrap text-lg sm:text-xl font-semibold dark:text-white"
+              aria-label="move to home"
             >
               <span className="px-2 py-1 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-lg text-white">
                 Asif's
@@ -33,10 +34,11 @@ const FooterComponent = () => {
                   href="https://asifmulla.netlify.app"
                   target="_blank"
                   rel="noopener noreferrer"
+                  aria-label="my website"
                 >
                   My Portfolio website
                 </Footer.Link>
-                <Footer.Link href="/" target="_blank" rel="noopener noreferrer">
+                <Footer.Link href="/" target="_blank" rel="noopener noreferrer"  aria-label="blog site">
                   My Blog website
                 </Footer.Link>
               </Footer.LinkGroup>
@@ -48,10 +50,11 @@ const FooterComponent = () => {
                   href="https://www.github.com/asifmulla123"
                   target="_blank"
                   rel="noopener noreferrer"
+                  aria-label="github"
                 >
                   Github
                 </Footer.Link>
-                <Footer.Link href="/" target="_blank" rel="noopener noreferrer">
+                <Footer.Link href="/" target="_blank" rel="noopener noreferrer"  aria-label="discord">
                   Discord
                 </Footer.Link>
               </Footer.LinkGroup>
@@ -59,10 +62,10 @@ const FooterComponent = () => {
             <div>
               <Footer.Title title="LEGAL" />
               <Footer.LinkGroup col>
-                <Footer.Link href="#" target="_blank" rel="noopener noreferrer">
+                <Footer.Link href="#" target="_blank" rel="noopener noreferrer"  aria-label="privacy policy">
                   Privacy Policy
                 </Footer.Link>
-                <Footer.Link href="#" target="_blank" rel="noopener noreferrer">
+                <Footer.Link href="#" target="_blank" rel="noopener noreferrer"  aria-label="terms and conditions">
                   Terms &amp; Conditions
                 </Footer.Link>
               </Footer.LinkGroup>

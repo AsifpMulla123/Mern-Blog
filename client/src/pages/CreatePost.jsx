@@ -119,6 +119,7 @@ const CreatePost = () => {
             outline
             onClick={handleUploadImage}
             disabled={imageUploadProgress}
+            aria-label="Upload"
           >
             {imageUploadProgress ? (
               <div className="w-16 h-16">
@@ -147,7 +148,11 @@ const CreatePost = () => {
           required
           onChange={(value) => setFormData({ ...formData, content: value })}
         />
-        <Button type="submit" gradientDuoTone="purpleToPink">
+        <Button
+          type="submit"
+          gradientDuoTone="purpleToPink"
+          aria-label="Publish"
+        >
           Publish
         </Button>
         {publishError && (

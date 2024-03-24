@@ -151,6 +151,7 @@ export default function UpdatePost() {
             outline
             onClick={handleUpdloadImage}
             disabled={imageUploadProgress}
+            aria-label="Upload"
           >
             {imageUploadProgress ? (
               <div className="w-16 h-16">
@@ -182,7 +183,7 @@ export default function UpdatePost() {
             setFormData({ ...formData, content: value });
           }}
         />
-        <Button type="submit" gradientDuoTone="purpleToPink">
+        <Button type="submit" gradientDuoTone="purpleToPink" aria-label="Update">
           Update post
         </Button>
         {publishError && (

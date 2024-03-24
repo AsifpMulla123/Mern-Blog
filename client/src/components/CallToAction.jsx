@@ -12,6 +12,7 @@ const CallToAction = () => {
         <Button
           gradientDuoTone="purpleToPink"
           className="rounded-tl-xl rounded-bl-none"
+          aria-label="projects"
         >
           <a
             href="https://google.com"
@@ -23,7 +24,10 @@ const CallToAction = () => {
         </Button>
       </div>
       <div className="p-7 flex-1">
-        <img src="https://bairesdev.mo.cloudinary.net/blog/2023/08/What-Is-JavaScript-Used-For.jpg" />
+        <img
+          src="https://bairesdev.mo.cloudinary.net/blog/2023/08/What-Is-JavaScript-Used-For.jpg"
+          alt="javascript poster"
+        />
       </div>
     </div>
   );

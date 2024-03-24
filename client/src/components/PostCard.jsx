@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 export default function PostCard({ post }) {
   return (
     <div className="group relative w-full border h-[400px] overflow-hidden rounded-lg sm:w-[350px] border-teal-500 hover:border-2 transition-all">
-      <Link to={`/post/${post.slug}`}>
+      <Link to={`/post/${post.slug}`}  aria-label="slug">
         <img
           src={post.image}
           alt="post cover"
@@ -15,6 +15,7 @@ export default function PostCard({ post }) {
         <p className="italic text-sm">{post.category}</p>
         <Link
           to={`/post/${post.slug}`}
+          aria-label="slug"
           className="z-10 absolute group-hover:bottom-0 bottom-[-200px] left-0 right-0 border border-teal-500 text-teal-500 hover:bg-teal-500 hover:text-white transition-all duration-300 text-center py-2 rounded-md !rounded-tl-none m-2"
         >
           Read article

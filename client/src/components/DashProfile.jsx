@@ -217,6 +217,7 @@ const DashProfile = () => {
         />
         <Button
           type="submit"
+          aria-label="Update"
           gradientDuoTone="purpleToBlue"
           outline
           disabled={loading || imageFileUploading}
@@ -229,6 +230,7 @@ const DashProfile = () => {
               type="button"
               gradientDuoTone="purpleToPink"
               className="w-full"
+              aria-label="Post"
             >
               create a post
             </Button>
@@ -272,10 +274,18 @@ const DashProfile = () => {
               Are you sure you want to delete your account?
             </h3>
             <div className="flex justify-center gap-4">
-              <Button color="failure" onClick={handleDeleteUser}>
+              <Button
+                color="failure"
+                onClick={handleDeleteUser}
+                aria-label="Sure"
+              >
                 Yes,I'm sure
               </Button>
-              <Button color="gray" onClick={() => setShowModal(false)}>
+              <Button
+                color="gray"
+                onClick={() => setShowModal(false)}
+                aria-label="Cancle"
+              >
                 No, cancle
               </Button>
             </div>

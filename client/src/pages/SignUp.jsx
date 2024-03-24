@@ -42,7 +42,7 @@ const SignUp = () => {
       <div className="flex p-3 max-w-3xl mx-auto flex-col md:flex-row md:items-center gap-5">
         {/* left */}
         <div className="flex-1">
-          <Link to="/" className=" font-bold dark:text-white text-4xl">
+          <Link to="/" className=" font-bold dark:text-white text-4xl"  aria-label="logo">
             <span className="px-2 py-1 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-lg text-white">
               Asif's
             </span>
@@ -87,6 +87,7 @@ const SignUp = () => {
               gradientDuoTone="purpleToPink"
               type="submit"
               disabled={loading}
+              aria-label="SignUp"
             >
               {loading ? (
                 <>
@@ -101,7 +102,7 @@ const SignUp = () => {
           </form>
           <div className="flex gap-2 text-sm mt-5">
             <span>Have an account?</span>
-            <Link to="/sign-in" className="text-blue-500">
+            <Link to="/sign-in" className="text-blue-500"  aria-label="sign in">
               Sign In
             </Link>
           </div>

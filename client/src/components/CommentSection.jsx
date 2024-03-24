@@ -118,11 +118,12 @@ export default function CommentSection({ postId }) {
           <img
             className="h-5 w-5 object-cover rounded-full"
             src={currentUser.profilePicture}
-            alt=""
+            alt={currentUser.username}
           />
           <Link
             to={"/dashboard?tab=profile"}
             className="text-xs text-cyan-600 hover:underline"
+            aria-label="username"
           >
             @{currentUser.username}
           </Link>
@@ -130,7 +131,7 @@ export default function CommentSection({ postId }) {
       ) : (
         <div className="text-sm text-teal-500 my-5 flex gap-1">
           You must be signed in to comment.
-          <Link className="text-blue-500 hover:underline" to={"/sign-in"}>
+          <Link className="text-blue-500 hover:underline" to={"/sign-in"} aria-label="sign in">
             Sign In
           </Link>
         </div>
@@ -151,7 +152,12 @@ export default function CommentSection({ postId }) {
             <p className="text-gray-500 text-xs">
               {200 - comment.length} characters remaining
             </p>
-            <Button outline gradientDuoTone="purpleToBlue" type="submit">
+            <Button
+              outline
+              gradientDuoTone="purpleToBlue"
+              type="submit"
+              aria-label="Submit"
+            >
               Submit
             </Button>
           </div>
@@ -203,10 +209,15 @@ export default function CommentSection({ postId }) {
               <Button
                 color="failure"
                 onClick={() => handleDelete(commentToDelete)}
+                aria-label="ok"
               >
                 Yes, I'm sure
               </Button>
-              <Button color="gray" onClick={() => setShowModal(false)}>
+              <Button
+                color="gray"
+                onClick={() => setShowModal(false)}
+                aria-label="cancle"
+              >
                 No, cancel
               </Button>
             </div>

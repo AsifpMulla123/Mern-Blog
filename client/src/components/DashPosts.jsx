@@ -89,7 +89,7 @@ const DashPosts = () => {
                     {new Date(post.updatedAt).toLocaleDateString()}
                   </Table.Cell>
                   <Table.Cell>
-                    <Link to={`/post/${post.slug}`}>
+                    <Link to={`/post/${post.slug}`} aria-label="posts">
                       <img
                         src={post.image}
                         alt={post.title}
@@ -101,6 +101,7 @@ const DashPosts = () => {
                     <Link
                       className="font-medium text-gray-900 dark:text-white"
                       to={`/post/${post.slug}`}
+                      aria-label="title"
                     >
                       {post.title}
                     </Link>
@@ -121,6 +122,7 @@ const DashPosts = () => {
                     <Link
                       className="text-teal-500 hover:underline"
                       to={`/update-post/${post._id}`}
+                      aria-label="edit the content"
                     >
                       <span>Edit</span>
                     </Link>
@@ -133,6 +135,7 @@ const DashPosts = () => {
             <button
               className="w-full text-teal-500 self-center text-sm py-7"
               onClick={handleShowMore}
+              aria-label="ShowMore"
             >
               Show more
             </button>
@@ -155,10 +158,18 @@ const DashPosts = () => {
               Are you sure you want to delete this post?
             </h3>
             <div className="flex justify-center gap-4">
-              <Button color="failure" onClick={handleDeletePost}>
+              <Button
+                color="failure"
+                onClick={handleDeletePost}
+                aria-label="sure"
+              >
                 Yes,I'm sure
               </Button>
-              <Button color="gray" onClick={() => setShowModal(false)}>
+              <Button
+                color="gray"
+                onClick={() => setShowModal(false)}
+                aria-label="cancle"
+              >
                 No, cancle
               </Button>
             </div>

@@ -112,6 +112,7 @@ export default function DashComments() {
             <button
               onClick={handleShowMore}
               className="w-full text-teal-500 self-center text-sm py-7"
+              aria-label="Showmore"
             >
               Show more
             </button>
@@ -134,10 +135,10 @@ export default function DashComments() {
               Are you sure you want to delete this comment?
             </h3>
             <div className="flex justify-center gap-4">
-              <Button color="failure" onClick={handleDeleteComments}>
+              <Button color="failure" onClick={handleDeleteComments} aria-label="sure">
                 Yes, I'm sure
               </Button>
-              <Button color="gray" onClick={() => setShowModal(false)}>
+              <Button color="gray" onClick={() => setShowModal(false)} aria-label="cancle">
                 No, cancel
               </Button>
             </div>

@@ -135,7 +135,7 @@ export default function Search() {
               <option value="finance">Finance</option>
             </Select>
           </div>
-          <Button type="submit" outline gradientDuoTone="purpleToPink">
+          <Button type="submit" outline gradientDuoTone="purpleToPink" aria-label="Filters">
             Apply Filters
           </Button>
         </form>
@@ -157,6 +157,7 @@ export default function Search() {
               <button
                 onClick={handleShowMore}
                 className="text-teal-500 text-lg hover:underline p-7 w-full"
+                aria-label="Showmore"
               >
                 Show More
               </button>
