@@ -4,7 +4,6 @@ import { useLocation, useNavigate } from "react-router-dom";
 import PostCard from "../components/PostCard";
 
 export default function Search() {
-  const navigate = useNavigate();
   const [sidebarData, setSidebarData] = useState({
     searchTerm: "",
     sort: "desc",
@@ -14,6 +13,7 @@ export default function Search() {
   const [loading, setLoading] = useState(false);
   const [showMore, setShowMore] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
   useEffect(() => {
     const urlParams = new URLSearchParams(location.search);
     const searchTermFromUrl = urlParams.get("searchTerm");
@@ -66,11 +66,11 @@ export default function Search() {
       const category = e.target.value || "uncategorized";
       setSidebarData({
         ...sidebarData,
-        category: category,
+        category,
       });
     }
   };
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     const urlParams = new URLSearchParams(location.search);
     urlParams.set("searchTerm", sidebarData.searchTerm);
@@ -92,7 +92,6 @@ export default function Search() {
     if (res.ok) {
       const data = await res.json();
       setPosts([...posts, ...data.posts]);
-      setLoading(false);
       if (data.posts.length === 9) {
         setShowMore(true);
       } else {
@@ -112,6 +111,7 @@ export default function Search() {
               placeholder="Search..."
               id="searchTerm"
               type="text"
+              value={sidebarData.searchTerm}
               onChange={handleChange}
             />
           </div>
@@ -142,7 +142,7 @@ export default function Search() {
       </div>
       <div className="w-full">
         <h1 className="text-3xl font-semibold sm:border-b border-gray-500 p-3 mt-5">
-          Post results
+          Post results:
         </h1>
         <div className="p-7 flex-wrap gap-4">
           {!loading && posts.length === 0 && (
@@ -155,8 +155,8 @@ export default function Search() {
               posts.map((post) => <PostCard key={post._id} post={post} />)}
             {showMore && (
               <button
-                className="text-teal-500 text-lg hover:underline p-7 w-full"
                 onClick={handleShowMore}
+                className="text-teal-500 text-lg hover:underline p-7 w-full"
               >
                 Show More
               </button>

@@ -1,5 +1,5 @@
 import { Button, Spinner } from "flowbite-react";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import CallToAction from "../components/CallToAction";
 import CommentSection from "../components/CommentSection";
@@ -11,7 +11,7 @@ const PostPage = () => {
   const [error, setError] = useState(false);
   const [post, setPost] = useState(null);
   const [recentPosts, setRecentPosts] = useState(null);
-  console.log(recentPosts);
+
   useEffect(() => {
     const fetchPosts = async () => {
       try {
@@ -52,7 +52,7 @@ const PostPage = () => {
 
   if (loading)
     return (
-      <div className="flex justify-center items-center max-h-screen">
+      <div className="flex justify-center items-center min-h-screen">
         <Spinner size="xl" />
       </div>
     );
